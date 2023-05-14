@@ -1,7 +1,7 @@
 {
   "short_name": "Colorium",
   "name": "Colorium Palette Creator",
-  "description": "A Color Palette Creation App.",
+  "description": "A Color Palette Creation App",
   "id": "/?source=pwa",
   "start_url": "https://colorium.tritium-studios.com/",
   "background_color": "#040036FF",
