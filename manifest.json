@@ -1,0 +1,66 @@
+{
+  "short_name": "Colorium",
+  "name": "Colorium Palette Creator",
+  "description": "A Color Palette Creation App.",
+  "id": "/?source=pwa",
+  "start_url": "https://colorium.tritium-studios.com/",
+  "background_color": "#040036FF",
+  "theme_color": "#040036FF",
+  "display": "standalone",
+  "scope": "https://colorium.tritium-studios.com/",
+  "prefer_related_applications": true,
+  "icons": [
+    {
+      "src": "https://colorium.tritium-studios.com/logo-192.svg",
+      "type": "image/svg+xml",
+      "sizes": "192x192",
+      "purpose": "any"
+    },
+    {
+      "src": "https://colorium.tritium-studios.com/logo-192-mask.svg",
+      "type": "image/svg+xml",
+      "sizes": "192x192",
+      "purpose": "maskable"
+    },
+    {
+      "src": "https://colorium.tritium-studios.com/logo-512.svg",
+      "type": "image/svg+xml",
+      "sizes": "512x512",
+      "purpose": "any"
+    },
+    {
+      "src": "https://colorium.tritium-studios.com/logo-512-mask.svg",
+      "type": "image/svg+xml",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    },
+    {
+      "src": "https://colorium.tritium-studios.com/splashscreen-narrow.png",
+      "type": "image/png",
+      "sizes": "540x720",
+      "purpose": "any"
+    },
+    {
+      "src": "https://colorium.tritium-studios.com/splashscreen-wide.png",
+      "type": "image/png",
+      "sizes": "720x540",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "https://colorium.tritium-studios.com/splashscreen-narrow.png",
+      "type": "image/png",
+      "sizes": "540x720",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "https://colorium.tritium-studios.com/splashscreen-wide.png",
+      "type": "image/png",
+      "sizes": "720x540",
+      "form_factor": "wide"
+    }
+  ],
+  "shortcuts": [
+  ]
+}
