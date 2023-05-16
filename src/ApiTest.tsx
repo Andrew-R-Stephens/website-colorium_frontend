@@ -20,8 +20,10 @@ function ApiTest() {
                 <div style={{color:"orangered", display:"flex"}}></div>
                     <div style={{margin:'auto'}}>
                         <table style={{width:'100%'}}>
-                            <tr><td><label>Correct response:</label></td><td>piloting</td></tr>
-                            <tr><td><label>Actual response:</label></td><td>{testResponse}</td></tr>
+                            <tbody>
+                                <tr><td><label>Correct response:</label></td><td>piloting</td></tr>
+                                <tr><td><label>Actual response:</label></td><td>{testResponse}</td></tr>
+                            </tbody>
                         </table>
                     </div>
                 </div>
