@@ -1,0 +1,76 @@
+.minimized-palette-parent
+  display: flex
+  margin: clamp(12px, 1svmin, 1.5svmin) clamp(12px, 1svmin, 1.5svmin) 2.5svmin clamp(12px, 1svmin, 1.5svmin)
+  position: relative
+  width: fit-content
+  height: fit-content
+  min-width: 120px
+  min-height: calc(120px*10/16)
+  border-radius: .7svmin
+  padding-top: 2svmin
+  font-family: "Comic Sans MS", sans-serif
+  font-size: clamp(calc(12px*10/16), 1svmin, 1.5svmin)
+
+.minimized-palette-color-parent
+  display: inline-flex
+  width: fit-content
+  height: fit-content
+  --bg-color: #FFFFFF
+
+.minimized-palette-color-wrapper
+  display: flex
+  width: 12svmin
+  height: calc(10svmin - 2svmin)
+  min-width: 120px
+  min-height: calc(120px*12/16)
+
+.minimized-palette-color
+  width: 100%
+  height: 100%
+  background-color: var(--bg-color)
+
+.minimized-palette-color:first-child
+  border-radius: .5svmin 0 0 .5svmin
+
+.minimized-palette-color:last-child
+  border-radius: 0 .5svmin .5svmin 0
+
+.minimized-palette-color:last-child:first-child
+  border-radius: .5svmin
+
+.minimized-palette-name-wrapper
+  display: inline-block
+  position: absolute
+  width: 12svmin
+  height: 2svmin
+  min-width: 120px
+  min-height: calc(120px*1/6)
+  top: 0
+
+.minimized-palette-name
+  margin: auto
+  width: 100%
+  text-align: center
+  padding: clamp(0px, .25svmin, 16px)
+
+.minimized-palette-date-wrapper
+  display: inline-block
+  position: absolute
+  width: 12svmin
+  height: 2svmin
+  min-width: 120px
+  min-height: calc(120px*1/6)
+  left: 0
+  top: 100%
+
+.minimized-palette-date
+  margin: auto
+  width: 100%
+  height: 100%
+  box-sizing: border-box
+  padding: clamp(0px, .25svmin, 16px)
+  text-align: center
+
+
+
+
