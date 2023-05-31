@@ -1,0 +1,64 @@
+{
+  "palettes": [
+    {
+      "colors":["#FF0000FF", "#00FF00FF", "#0000FFFF", "#FF00FFFF", "#FFFFFFFF", "#00FFFFFF"],
+      "author":"Jim Jimmies",
+      "date": "1 Jan 2023"
+    },
+    {
+      "colors":["#FAAA00FF", "#002300FF", "#FF0FFFFF", "#FFF5DFFF", "#012345FF"],
+      "author":"Billy TheKid",
+      "date": "5 Sept 2024"
+    },
+    {
+      "colors":["#FF0054FF", "#00FFcdFF", "#0010FFFF", "#FA00F85F", "#F65433FF", "#0010FFFF", "#FA00F85F", "#098FF2FF"],
+      "author":"Andrew NotStevens",
+      "date": "21 Oct 2025"
+    },
+    {
+      "colors":["#FF00004F"],
+      "author":"Alice In Chains",
+      "date": "1 Jan 2023"
+    },
+    {
+      "colors":["#F22A00FF", "#002300FF", "#FF055FFF", "#FFF5DFFF", "#01CC45FF"],
+      "author":"Jacky",
+      "date": "5 Sept 2024"
+    },
+    {
+      "colors":["#FF0054FF", "#00FFcdFF", "#0010FDFF", "#FA00F85F", "#F65433FF", "#0010FFFF", "#FA00F85F", "#098FF2FF"],
+      "author":"Wendy Womper",
+      "date": "21 Oct 2025"
+    },
+    {
+      "colors":["#FF0000FF", "#00FF00FF", "#0000FFFF", "#FF00FFFF", "#FFFFFFFF", "#00FFFFFF"],
+      "author":"Mary Sue",
+      "date": "1 Jan 2023"
+    },
+    {
+      "colors":["#FAAA00FF", "#002300FF", "#FF0FFFFF", "#FFF5DFFF", "#012345FF"],
+      "author":"Arnold Blib",
+      "date": "5 Sept 2024"
+    },
+    {
+      "colors":["#FF0054FF", "#00FFcdFF", "#0010FFFF", "#FA00F85F", "#F65433FF", "#0010FFFF", "#FA00F85F", "#098FF2FF"],
+      "author":"Ronald McDonald",
+      "date": "21 Oct 2025"
+    },
+    {
+      "colors":["#FF0000FF", "#00FF00FF", "#0000FFFF", "#FF00FFFF", "#FFFFFFFF", "#00FFFFFF"],
+      "author":"Koala Bear",
+      "date": "1 Jan 2023"
+    },
+    {
+      "colors":["#FAAA00FF", "#002300FF", "#FF0FFFFF", "#FFF5DFFF", "#012345FF"],
+      "author":"Nicholas",
+      "date": "5 Sept 2024"
+    },
+    {
+      "colors":["#FF0054FF", "#0AAAAAFF", "#FA00F85F", "#F65433FF", "#0010FFFF", "#FA00F85F", "#098FF2FF"],
+      "author":"Ben",
+      "date": "21 Oct 2025"
+    }
+  ]
+}
