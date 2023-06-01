@@ -1,124 +1,92 @@
-import {Fragment, useEffect, useState} from "react";
+import {Fragment, useEffect, useRef, useState} from "react";
+import "./MinimizedPaletteGallery.sass"
 import MinimizedPaletteData from "./MinimizedPaletteData.tsx";
 import MinimizedPalette from "./MinimizedPalette.tsx";
+import allPalettes from "./minimizedPaletteSamples.json"
+import {Simulate} from "react-dom/test-utils";
+import load = Simulate.load;
+import MinimizedPaletteBuffer from "./MinimizedPaletteBuffer.tsx";
 
 function MinimizedPaletteGallery() {
 
-    const [palettes, setPalettes] = useState<MinimizedPaletteData[]>()
+    const previousPage = useRef<number>(0)
+    const [currentPage, setCurrentPage] = useState<number>(0)
+    const [palettes, setPalettes] = useState<MinimizedPaletteData[]>([])
 
-    const handleAddPalette = (newPalettes:MinimizedPaletteData[]) => {
-        setPalettes(() => {
-            const combined = palettes??[];
-            console.log("old", palettes, "combied", combined)
-            newPalettes?.map((palette:MinimizedPaletteData)=>{
-                combined?.push(palette)
-            })
-
-            return combined;
-        });
+    const handleCurrentPage = (pageIncrement:number) => {
+        setCurrentPage((currentPage:number) => {
+            previousPage.current = currentPage
+            return (currentPage + pageIncrement)
+        })
     };
 
     useEffect(() => {
-        const tempData = async () => ({
-            palettes: [
+        const palettesParent = document.getElementById('minimized-palette-gallery')
+        const palettesWrapper = document.getElementById('minimized-palette-gallery-scroll-wrapper')
+
+        palettesWrapper?.addEventListener('wheel', (event) => {
+            if (event.deltaY < 0)
+            {
+                // DO NOTHING
+            }
+            else if (event.deltaY > 0)
+            {
+                if (Math.ceil((palettesParent?.scrollHeight ?? 0) - (palettesParent?.scrollTop ?? 0)) <= (palettesParent?.clientHeight ?? 0) * 1.5)
                 {
-                    colors:['#FF0000FF', '#00FF00FF', '#0000FFFF', '#FF00FFFF', '#FFFFFFFF', '#00FFFFFF'],
-                    author:"Jim Jimmies",
-                    date: "1 Jan 2023"
-                },
-                {
-                    colors:['#FAAA00FF', '#002300FF', '#FF0FFFFF', '#FFF5DFFF', '#012345FF'],
-                    author:"Billy TheKid",
-                    date: "5 Sept 2024"
-                },
-                {
-                    colors:['#FF0054FF', '#00FFcdFF', '#0010FFFF', '#FA00F85F', '#F65433FF', '#0010FFFF', '#FA00F85F', '#098FF2FF'],
-                    author:"Andrew NotStevens",
-                    date: "21 Oct 2025"
-                },
-                {
-                    colors:['#FF00004F'],
-                    author:"Jim Jimmies",
-                    date: "1 Jan 2023"
-                },
-                {
-                    colors:['#F22A00FF', '#002300FF', '#FF055FFF', '#FFF5DFFF', '#01CC45FF'],
-                    author:"Billy TheKid",
-                    date: "5 Sept 2024"
-                },
-                {
-                    colors:['#FF0054FF', '#00FFcdFF', '#0010FDFF', '#FA00F85F', '#F65433FF', '#0010FFFF', '#FA00F85F', '#098FF2FF'],
-                    author:"Andrew NotStevens",
-                    date: "21 Oct 2025"
-                },
-                {
-                    colors:['#FF0000FF', '#00FF00FF', '#0000FFFF', '#FF00FFFF', '#FFFFFFFF', '#00FFFFFF'],
-                    author:"Jim Jimmies",
-                    date: "1 Jan 2023"
-                },
-                {
-                    colors:['#FAAA00FF', '#002300FF', '#FF0FFFFF', '#FFF5DFFF', '#012345FF'],
-                    author:"Billy TheKid",
-                    date: "5 Sept 2024"
-                },
-                {
-                    colors:['#FF0054FF', '#00FFcdFF', '#0010FFFF', '#FA00F85F', '#F65433FF', '#0010FFFF', '#FA00F85F', '#098FF2FF'],
-                    author:"Andrew NotStevens",
-                    date: "21 Oct 2025"
-                },
-                {
-                    colors:['#FF0000FF', '#00FF00FF', '#0000FFFF', '#FF00FFFF', '#FFFFFFFF', '#00FFFFFF'],
-                    author:"Jim Jimmies",
-                    date: "1 Jan 2023"
-                },
-                {
-                    colors:['#FAAA00FF', '#002300FF', '#FF0FFFFF', '#FFF5DFFF', '#012345FF'],
-                    author:"Billy TheKid",
-                    date: "5 Sept 2024"
-                },
-                {
-                    colors:['#FF0054FF', '#00FFcdFF', '#0010FFFF', '#FA00F85F', '#F65433FF', '#0010FFFF', '#FA00F85F', '#098FF2FF'],
-                    author:"Andrew NotStevens",
-                    date: "21 Oct 2025"
-                },
-            ]
-        })
+                    handleCurrentPage(1)
+                }
+
+            }
+        }, false)
+
+        setCurrentPage(3)
+
+    }, [])
+
+    useEffect(() => {
+        loadPalettes()
+    }, [currentPage])
+
+    function loadPalettes() {
+        console.log("loading palettes")
+
+        const localPalettes = allPalettes.palettes
+        const tempData = async () => (allPalettes)
 
         tempData().then((data) => {
-            console.log(data)
 
-            const tempArray: MinimizedPaletteData[] = [];
-            data.palettes?.map((palette:any) => {
-                tempArray.push(new MinimizedPaletteData(palette));
-            })
+            const tempArray: MinimizedPaletteData[] = [...palettes];
 
-            handleAddPalette(tempArray);
+            for(let i = currentPage-previousPage.current; i > 0; i--) {
+                localPalettes?.map((palette:any) => {
+                    tempArray.push(new MinimizedPaletteData(palette));
+                })
+            }
+
+            setPalettes(tempArray)
         })
-    }, [])
+    }
 
     return (
         <Fragment>
-            <div style={{
-                display: "inline-flex",
-                width: "100%",
-                flexDirection: "row",
-                flexWrap: "wrap",
-                justifyContent: "space-evenly"
-            }}>
-                {
-                    palettes ? palettes.map((palette: MinimizedPaletteData) => {
-                        return (
-                            <MinimizedPalette props={{
-                                data: {
-                                    colors: palette?.colors,
-                                    author: palette?.author,
-                                    date: palette?.date
-                                }
-                            }}/>
-                        )
-                    }) : <div>No palettes</div>
-                }
+            <div className={'minimized-palette-gallery'} id={'minimized-palette-gallery'}>
+                <div className={'minimized-palette-gallery-scroll-wrapper'} id={'minimized-palette-gallery-scroll-wrapper'}>
+                    <div className={'minimized-palette-gallery-scroll-inner'} id={'minimized-palette-gallery-scroll-inner'}>
+                        {
+                            palettes ? palettes.map((palette: MinimizedPaletteData) => {
+                                return (
+                                    <MinimizedPalette
+                                        colors={palette?.colors}
+                                        author= {palette?.author}
+                                        date= {palette?.date}
+                                    />
+                                )
+                            }) : <div>No palettes</div>
+                        }
+                    </div>
+                </div>
             </div>
+            <div className={'minimized-palette-gallery-overlay'}/>
         </Fragment>
     )
 
