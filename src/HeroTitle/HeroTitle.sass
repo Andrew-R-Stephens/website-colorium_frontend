@@ -40,9 +40,12 @@
   color: transparent
   font-family: Audiowide, fantasy
   font-size: 10svmin
+  --stroke: clamp(1px, .05svw, 2px)
+  --stroke-neg: calc(var(--stroke) * -1)
 
 .hero-title-animated-letter
   animation: color-shift forwards 2s ease-in-out
+  text-shadow: var(--stroke-neg) var(--stroke-neg) 0 #000, var(--stroke) var(--stroke-neg) 0 #000, var(--stroke-neg) var(--stroke) 0 #000, var(--stroke) var(--stroke) 0 #000
 
 @for $i from 1 through 8
   .hero-title-animated-letter:nth-of-type(#{$i})
@@ -62,21 +65,24 @@
   44.4%
     color: #7FFF00
   50%
-    scale: 1.11
+    scale: 1.06
   55.5%
     color: #00FFFF
-    scale: 1.1
+    scale: 1.05
   66.6%
     color: #0000FF
   77.7%
     color: #9932CC
     scale: .95
+    text-shadow: var(--stroke-neg) var(--stroke-neg) 0 #000, var(--stroke) var(--stroke-neg) 0 #000, var(--stroke-neg) var(--stroke) 0 #000, var(--stroke) var(--stroke) 0 #000
   88.8%
     color: #FF1493
     scale: 1.05
+    text-shadow: none
   100.0%
     color: transparent
     scale: 1
+    text-shadow: none
 
 
 @font-face

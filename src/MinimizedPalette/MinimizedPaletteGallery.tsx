@@ -86,6 +86,7 @@ function MinimizedPaletteGallery() {
                     </div>
                 </div>
             </div>
+            <div className={'minimized-palette-gallery-overlay'}/>
         </Fragment>
     )
 
