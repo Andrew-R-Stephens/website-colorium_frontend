@@ -10,8 +10,13 @@
     "test": "NODE_ENV=test jest"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.13.4",
     "axios": "^1.4.0",
     "react": "^18.2.0",
+    "react-color": "^2.19.3",
+    "react-color-custom": "^1.0.6",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.10.0"
   },
@@ -22,6 +27,7 @@
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
     "@types/react": "^18.0.28",
+    "@types/react-color": "^3.0.6",
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.57.1",
     "@typescript-eslint/parser": "^5.57.1",
